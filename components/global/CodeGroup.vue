@@ -12,7 +12,8 @@ export default {
     },
   },
   mounted() {
-    this.tabs = this.$slots.default()
+    // eslint-disable-next-line vue/require-slots-as-functions
+    this.tabs = this.$slots.default
       .filter((slot) => Boolean(slot.componentOptions))
       .map((slot) => {
         return {

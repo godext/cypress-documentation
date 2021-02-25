@@ -25,6 +25,7 @@ export default {
 }
 .code-block.active {
   display: block;
+  border-radius: 0 0 6px 6px;
 
   .line-numbers {
     @apply mt-0;
