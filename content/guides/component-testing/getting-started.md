@@ -7,7 +7,7 @@ containerClass: component-testing
 
 Welcome to the future of cypress testing. Component testing.
 
-## What is Component Testing 
+## What is Component Testing
 
 Testing components is almost identical to normal cypress testing except
 
@@ -18,9 +18,10 @@ Let's get you set up so you can start testing components.
 
 ## Try it out with an existing project
 
-If you just want to see it working but don’t want to write code, follow this:
+If you just want to see it working but don’t want to write code, follow these steps:
 
 <!-- FIXME: update the url of the example repo we choose -->
+
 - Clone the calc repo
 - Install depenedencies `yarn`
 - Open component testing runner `yarn cy:open`
@@ -30,26 +31,26 @@ If you just want to see it working but don’t want to write code, follow this:
 - Click on one of the specs and see it run
 - Open the spec file by clicking on its name above the command log
 - Make a change to the spec and see it re-run
-- Open the component tested and make a change, any change. The test will be re-run automatically. 
+- Open the component tested and make a change, any change. The test will be re-run automatically.
 
 <DocsImage src="/img/guides/component-testing/first-run.png" alt="Splash Screen of Component Testing" ></DocsImage>
 
 ## Set it up in your project
 
-This section will show you how to set a project up from scratch that has component testing running alongside e2e testing. 
+This section will show you how to set a project up from scratch that has component testing running alongside e2e testing.
 
 Before we start testing components let's make sure we everything we need.
 
-<Alert type="info"> 
+<Alert type="info">
 
-If you are using VueJs click on the Vue tab of the code examples. 
+If you are using VueJs click on the Vue tab of the code examples.
 
 </Alert>
 
 ### Prerequisites
 
 - An npm project with a `package.json` file at the root that runs on webpack 4 or 5. Create-react-app runs on webpack. It will work fine. So does Nextjs or Gatsby.
-- A `webpack.config.js` file or a way to access it. Refer to the docs tof your framework to access it. 
+- A `webpack.config.js` file or a way to access it. Refer to the docs tof your framework to access it.
 - A few components that have a visual part to them. It could be a Date Picker, tabs, responsive images, your imagination (and your time) is the limit.
 - A basic knowledge of how to write tests in cypress
 
@@ -60,17 +61,17 @@ First, run the following command. It will install both the latest version of cyp
 <CodeGroup>
   <code-block label="react" active>
 
-  ```bash
-  yarn add cypress @cypress/react @cypress/webpack-dev-server
-  ```
+```bash
+yarn add cypress @cypress/react @cypress/webpack-dev-server
+```
 
   </code-block>
 
   <code-block label="vue">
 
-  ```bash
-  yarn add cypress @cypress/vue @cypress/webpack-dev-server
-  ```
+```bash
+yarn add cypress @cypress/vue @cypress/webpack-dev-server
+```
 
   </code-block>
 </CodeGroup>
@@ -95,7 +96,7 @@ Then it is time to fill in the `support.js` file to configure our component serv
 
 Since our project uses webpack, we will be using webpack-dev-server to facilitate the matching of the styling and display rules of component
 
-<Alert type="info"> 
+<Alert type="info">
 
 If you have a dev and a production config, prefer the dev version for now, it will give you better location information using sourceMaps.
 
@@ -117,41 +118,40 @@ We are now ready to start testing our components.
 
 ### Writing Component Tests
 
-We assume a `button` component exists. 
+We assume a `button` component exists.
 
 - Navigate to where this component file is saved
 - Create a `Button.spec.jsx` file in the same folder
 - Add a test:
 
-
 <CodeGroup>
   <code-block label="react" active>
 
-  ```jsx
-  import * as React from 'react'
-  import { mount } from '@cypress/react'
-  import Button from './button'
+```jsx
+import * as React from 'react'
+import { mount } from '@cypress/react'
+import Button from './button'
 
-  it('Button', () => {
-    mount(<Button>Test button</Button>)
-    cy.get('button').contains('Test button').click()
-  })
-  ```
+it('Button', () => {
+  mount(<Button>Test button</Button>)
+  cy.get('button').contains('Test button').click()
+})
+```
 
   </code-block>
 
   <code-block label="vue" active>
 
-  ```jsx
-  import { mount } from '@cypress/vue'
-  import Button from './button'
+```jsx
+import { mount } from '@cypress/vue'
+import Button from './button'
 
-  it('Button', () => {
-    mount(() => (<Button>Test button</Button>))
-    cy.get('button').contains('Test button').click()
-  })
-  ```
-  
+it('Button', () => {
+  mount(() => <Button>Test button</Button>)
+  cy.get('button').contains('Test button').click()
+})
+```
+
   </code-block>
 </CodeGroup>
 
@@ -170,7 +170,7 @@ yarn cypress open-ct
 ### Setup CI
 
 Sometimes, we want to run tests without interactivity and see all results in the terminal.
-To run all tests in one command we use `cypress run-ct`. 
+To run all tests in one command we use `cypress run-ct`.
 
 In the project we just built, this command will yield the following results.
 
